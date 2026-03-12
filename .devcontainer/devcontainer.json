@@ -1,0 +1,30 @@
+{
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"postCreateCommand": "bun install",
+
+	"customizations": {
+		"vscode": {
+			"extensions": ["biomejs.biome", "oven.bun-vscode"],
+			"settings": {
+				"editor.codeActionsOnSave": {
+					"source.organizeImports.biome": "explicit"
+				},
+				"editor.formatOnSave": true,
+				"[typescript]": {
+					"editor.defaultFormatter": "biomejs.biome"
+				},
+				"[typescriptreact]": {
+					"editor.defaultFormatter": "biomejs.biome"
+				},
+				"[json]": {
+					"editor.defaultFormatter": "biomejs.biome"
+				},
+				"[jsonc]": {
+					"editor.defaultFormatter": "biomejs.biome"
+				}
+			}
+		}
+	}
+}
