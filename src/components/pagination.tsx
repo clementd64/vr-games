@@ -1,5 +1,4 @@
 import { useMemo } from "preact/hooks";
-import { goto } from "../lib/params";
 
 function range(start: number, end: number) {
 	return Array.from({ length: end - start + 1 }, (_, i) => i + start);
@@ -7,7 +6,15 @@ function range(start: number, end: number) {
 
 const BOUNDARY = 2;
 
-export function Pagination({ page, total }: { page: number; total: number }) {
+export function Pagination({
+	page,
+	total,
+	onNavigate,
+}: {
+	page: number;
+	total: number;
+	onNavigate: (page: number) => void;
+}) {
 	if (total <= 1) return null;
 
 	const pages = useMemo(() => {
@@ -35,7 +42,7 @@ export function Pagination({ page, total }: { page: number; total: number }) {
 				<button
 					type="button"
 					class={`join-item btn ${i === page ? "btn-active" : ""}`}
-					onClick={() => goto({ page: i })}
+					onClick={() => onNavigate(i)}
 				>
 					{i}
 				</button>

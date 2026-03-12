@@ -1,3 +1,9 @@
+interface Data {
+	url: string;
+	password: string;
+	games: Game[];
+}
+
 interface Game {
 	id: string;
 	name: string;
@@ -15,5 +21,6 @@ interface Game {
 
 interface Params {
 	page: number;
-	search: string;
+	search?: string;
+	game?: string;
 }
