@@ -1,3 +1,4 @@
+import Fuse from "fuse.js/basic";
 import { render } from "preact";
 import { useCallback, useEffect, useMemo, useState } from "preact/hooks";
 import data from "../data.json" with { type: "json" };
@@ -7,6 +8,12 @@ import { Pagination } from "./components/pagination";
 import { getParams } from "./lib/params";
 
 const PER_PAGE = 24;
+
+const index = new Fuse(data.games, {
+	keys: ["name"],
+	threshold: 0.4,
+	distance: 25,
+});
 
 function App() {
 	const [params, setParams] = useState(getParams());
@@ -21,9 +28,7 @@ function App() {
 	}, [hashChange]);
 
 	const filtered = useMemo(() => {
-		return data.games.filter((game) =>
-			game.name.toLowerCase().includes(params.search.toLowerCase()),
-		);
+		return index.search(params.search).map((result) => result.item);
 	}, [params.search]);
 
 	return (
