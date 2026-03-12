@@ -1,3 +1,8 @@
+function humanFileSize(size: number) {
+	const i = size === 0 ? 0 : Math.floor(Math.log(size) / Math.log(1024));
+	return `${Number((size / 1024 ** i).toFixed(2))} ${["B", "kB", "MB", "GB", "TB"][i]}`;
+}
+
 export function Grid({ games }: { games: Game[] }) {
 	return (
 		<div class="p-4 grid gap-4">
@@ -21,11 +26,20 @@ function Card({ game }: { game: Game }) {
 						class="rounded-box"
 					/>
 				) : null}
+				{game.size > 0 ? (
+					<span class="badge absolute top-1 right-1">
+						{humanFileSize(game.size)}
+					</span>
+				) : null}
 			</figure>
 			<div class="card-body">
 				<h2 class="card-title">{game.name}</h2>
 				<p class="text-base-content/50">{game.release}</p>
-				<p class="text-base-content/70">{game.note}</p>
+				{game.note ? (
+					<p class="text-base-content/70 whitespace-pre-line truncate">
+						{game.note}
+					</p>
+				) : null}
 				<div class="card-actions justify-end">
 					<button type="button" class="btn btn-primary">
 						Download
