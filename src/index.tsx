@@ -28,6 +28,9 @@ function App() {
 	}, [hashChange]);
 
 	const filtered = useMemo(() => {
+		if (params.search === "") {
+			return data.games;
+		}
 		return index.search(params.search).map((result) => result.item);
 	}, [params.search]);
 
