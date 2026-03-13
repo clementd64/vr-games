@@ -35,7 +35,7 @@ export function Guide() {
 					</li>
 					<li>Developer Mode enabled</li>
 				</ul>
-				<p>Using Docker</p>
+				<p>Using Docker (Linux only)</p>
 				<Commands
 					commands={[
 						"docker run --rm -it --device=/dev/bus/usb:/dev/bus/usb --init ghcr.io/clementd64/vr-games:latest",
