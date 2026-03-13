@@ -32,7 +32,7 @@ export function GameDetail() {
 
 	const commands = [
 		`rclone --progress copy --http-url ${data.url} :http:/${game.id}/ ./`,
-		`7z e ${game.id}.7z.001 -p${data.password} "${game.release}/${game.package}.apk"`,
+		`7z x ${game.id}.7z.001 -p${data.password} -r "*.apk" "*.obb"`,
 	];
 
 	const [copied, setCopied] = useState(false);
