@@ -57,8 +57,17 @@ export function Grid({
 }) {
 	return (
 		<div class="p-4 grid gap-4">
-			<div class="m-auto w-9/10 lg:w-1/3">
-				<Filters />
+			<div class="grid gap-4 grid-cols-[1fr_auto] justify-items-center">
+				<div class="w-9/10 lg:w-1/2">
+					<Filters />
+				</div>
+				<button
+					type="button"
+					class="btn btn-square btn-neutral"
+					onClick={() => setParams({ guide: "1" })}
+				>
+					<span class="icon-[mdi--information-outline]"></span>
+				</button>
 			</div>
 			<div class="grid gap-4">
 				<div class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
@@ -105,6 +114,7 @@ function Card({ game }: { game: Game }) {
 						class="btn btn-primary"
 						onClick={() => setParams({ game: game.id })}
 					>
+						<span class="icon-[mdi--download]"></span>
 						Download
 					</button>
 				</div>

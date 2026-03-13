@@ -24,6 +24,7 @@ function getParams() {
 		page: Number(params.get("page") ?? "1"),
 		search: params.get("search") ?? undefined,
 		game: params.get("game") ?? undefined,
+		guide: params.get("guide") ?? undefined,
 	} satisfies Params;
 }
 

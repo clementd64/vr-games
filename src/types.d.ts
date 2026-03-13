@@ -23,4 +23,5 @@ interface Params {
 	page: number;
 	search?: string;
 	game?: string;
+	guide?: string;
 }

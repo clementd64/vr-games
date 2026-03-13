@@ -38,7 +38,7 @@ export function Pagination({
 					class="join-item btn"
 					onClick={() => onNavigate(page - 1)}
 				>
-					«
+					<span class="icon-[mdi--navigate-before]"></span>
 				</button>
 			) : null}
 			{pages.map((i) => (
@@ -56,7 +56,7 @@ export function Pagination({
 					class="join-item btn"
 					onClick={() => onNavigate(page + 1)}
 				>
-					»
+					<span class="icon-[mdi--navigate-next]"></span>
 				</button>
 			) : null}
 		</div>
