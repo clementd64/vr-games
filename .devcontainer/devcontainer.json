@@ -1,7 +1,5 @@
 {
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
+	"image": "ghcr.io/clementd64/vr-games/devcontainer:latest",
 	"postCreateCommand": "bun install",
 
 	"customizations": {

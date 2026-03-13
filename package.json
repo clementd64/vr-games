@@ -4,7 +4,8 @@
 	"scripts": {
 		"dev": "vite dev --host=127.0.0.1",
 		"build": "vite build",
-		"fetch": "bun cli/fetch.ts"
+		"fetch": "bun cli/fetch.ts",
+		"ci:build-pages": "bun ci && bun run --sequential fetch build"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.4.6",
