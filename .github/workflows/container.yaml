@@ -7,6 +7,7 @@ on:
       - main
     paths:
       - Dockerfile
+      - .devcontainer/Dockerfile
   schedule:
     - cron: '0 0 1 * *'
 
@@ -30,3 +31,10 @@ jobs:
         with:
           push: true
           tags: ghcr.io/${{ github.repository }}:latest
+
+      - name: Build and push devcontainer
+        uses: docker/build-push-action@v5
+        with:
+          file: ./.devcontainer/Dockerfile
+          push: true
+          tags: ghcr.io/${{ github.repository }}/devcontainer:latest
