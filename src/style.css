@@ -1,2 +1,17 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@plugin '@iconify/tailwind4' {
+	scale: 1.2;
+}
+
+.typo-release {
+    @apply text-base-content/50;
+}
+
+.typo-note {
+    @apply text-base-content/70 whitespace-pre-line truncate;
+}
+
+.mockup-code::before {
+    display: none;
+}

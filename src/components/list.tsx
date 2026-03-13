@@ -53,7 +53,7 @@ export function Grid({
 }) {
 	return (
 		<div class="p-4 grid gap-4">
-			<div class="m-auto w-9/10 lg:w-1/2">
+			<div class="m-auto w-9/10 lg:w-1/3">
 				<Filters />
 			</div>
 			<div class="grid gap-4">
@@ -93,12 +93,8 @@ function Card({ game }: { game: Game }) {
 			</figure>
 			<div class="card-body">
 				<h2 class="card-title">{game.name}</h2>
-				<p class="text-base-content/50">{game.release}</p>
-				{game.note ? (
-					<p class="text-base-content/70 whitespace-pre-line truncate">
-						{game.note}
-					</p>
-				) : null}
+				<p class="typo-release">{game.release}</p>
+				{game.note ? <p class="typo-note">{game.note}</p> : null}
 				<div class="card-actions justify-end">
 					<button
 						type="button"

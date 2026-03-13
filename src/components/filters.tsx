@@ -5,12 +5,15 @@ export function Filters() {
 	const params = useContext(Params);
 
 	return (
-		<input
-			type="text"
-			placeholder="Search"
-			class="input w-full"
-			value={params.search}
-			onInput={(e) => setParams({ search: e.currentTarget.value, page: 1 })}
-		/>
+		<label class="input w-full">
+			<span class="icon-[mdi--search]"></span>
+			<input
+				type="text"
+				placeholder="Search"
+				class="grow"
+				value={params.search}
+				onInput={(e) => setParams({ search: e.currentTarget.value, page: 1 })}
+			/>
+		</label>
 	);
 }
