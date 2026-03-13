@@ -32,12 +32,15 @@ export function Pagination({
 
 	return (
 		<div class="join">
-			<button
-				type="button"
-				class={`join-item btn ${page <= 1 ? "btn-disabled" : ""}`}
-			>
-				«
-			</button>
+			{page > 1 ? (
+				<button
+					type="button"
+					class="join-item btn"
+					onClick={() => onNavigate(page - 1)}
+				>
+					«
+				</button>
+			) : null}
 			{pages.map((i) => (
 				<button
 					type="button"
@@ -47,12 +50,15 @@ export function Pagination({
 					{i}
 				</button>
 			))}
-			<button
-				type="button"
-				class={`join-item btn ${page >= total ? "btn-disabled" : ""}`}
-			>
-				»
-			</button>
+			{page < total ? (
+				<button
+					type="button"
+					class="join-item btn"
+					onClick={() => onNavigate(page + 1)}
+				>
+					»
+				</button>
+			) : null}
 		</div>
 	);
 }

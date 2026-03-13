@@ -1,5 +1,5 @@
 import Fuse from "fuse.js";
-import { useContext, useMemo } from "preact/hooks";
+import { useContext, useEffect, useMemo } from "preact/hooks";
 import { data } from "../lib";
 import { Params, setParams } from "../lib/params";
 import { Filters } from "./filters";
@@ -29,6 +29,10 @@ export function GameList() {
 		}
 		return index.search(params.search).map((result) => result.item);
 	}, [params.search]);
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [params.page]);
 
 	return (
 		<Grid
