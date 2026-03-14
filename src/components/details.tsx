@@ -55,7 +55,7 @@ export function GameDetail() {
 				<Commands
 					commands={[
 						`adb install "${game.release}/${game.package}.apk"`,
-						`test -d "${game.release}" && adb push "${game.release}/${game.package}/." "/sdcard/Android/obb/${game.package}/"`,
+						`test -d "${game.release}/${game.package}" && adb push "${game.release}/${game.package}/." "/sdcard/Android/obb/${game.package}/"`,
 					]}
 				/>
 
