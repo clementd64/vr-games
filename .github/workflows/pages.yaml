@@ -28,7 +28,9 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build
-        run: docker run --rm -u $(id -u):$(id -g) -v "$PWD":/app -w /app ghcr.io/clementd64/vr-games/devcontainer:latest bun run ci:build-pages
+        run: docker run --rm -u $(id -u):$(id -g) -v "$PWD":/app -w /app -e VRP_CONFIG ghcr.io/clementd64/vr-games/devcontainer:latest bun run ci:build-pages
+        env:
+          VRP_CONFIG: ${{ secrets.VRP_CONFIG }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4

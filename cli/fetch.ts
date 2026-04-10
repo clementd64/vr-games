@@ -1,12 +1,10 @@
 import { basename } from "node:path";
 import { $, Glob } from "bun";
 
-const config = await fetch("https://vrpirates.wiki/downloads/vrp-public.json")
-	.then((res) => res.json())
-	.then((data) => ({
-		url: data.baseUri,
-		password: atob(data.password),
-	}));
+const config = JSON.parse(Bun.env.VRP_CONFIG || "{}") as {
+	url: string;
+	password: string;
+};
 
 await $`rclone copy --http-url ${config.url} :http:/meta.7z ./cache/`;
 await $`7z x cache/meta.7z -ocache -p${config.password} -y`;
