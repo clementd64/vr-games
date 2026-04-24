@@ -25,7 +25,7 @@ for await (const file of new Glob("cache/.meta/thumbnails/*.jpg").scan({
 	thumbnails.add(basename(file, ".jpg"));
 }
 
-const games = (await Bun.file("cache/VRP-GameList.txt").text())
+const games = (await Bun.file("cache/GameList.txt").text())
 	.trim()
 	.split("\n")
 	.slice(1)
